@@ -28,6 +28,7 @@ class EventServiceProvider extends ServiceProvider
         parent::boot();
 
         Event::listen('laravels.received_request', function (\Illuminate\Http\Request $req, $app) {
+            echo "接收请求；\n";
             //创建sentinel 客户端
             $sentinel = new \Sentinel\SentinelClient(env('SENTINEL_HOST', 'localhost'), env('SENTINEL_PORT', '9000'));
             try {
