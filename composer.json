@@ -56,7 +56,8 @@
         "sort-packages": true,
         "optimize-autoloader": true,
         "platform": {
-            "php": "7.2.34"
+            "php": "7.2.34",
+            "ext-fileinfo" : "1.0.4"
         }
     },
     "minimum-stability": "dev",
