@@ -6,6 +6,7 @@
     "type": "project",
     "require": {
         "php": "^7.2",
+        "ahas/sentinel": "v0.1.1",
         "fideloper/proxy": "^4.4",
         "hhxsv5/laravel-s": "~3.7.0",
         "laravel/framework": "5.6.*",
