@@ -147,20 +147,6 @@ return [
     */
 
     'event_handlers' => [
-        "laravels" => [
-            "received_request" => function (\Swoole\Http\Request $laravelRequest) {
-                //创建sentinel 客户端
-                $sentinel = new \Sentinel\SentinelClient(env('SENTINEL_HOST', 'localhost'), env('SENTINEL_PORT', '9000'));
-                try {
-                    $sentinelHelloEntry = $sentinel->entry("hello");
-                } catch (\Sentinel\BlockException $e) {
-                    $sentinelHelloEntry = null;
-                    throw $e;
-                } finally {
-                    $sentinelHelloEntry = null;
-                }
-            },
-        ]
     ],
 
     /*
