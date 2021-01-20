@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7b9d2bd7ea97e1eb9bde7b7ef235c039",
+    "content-hash": "6557cacbbcae1eb6d8be644e41fe064d",
     "packages": [
         {
             "name": "ahas/sentinel",
@@ -3926,6 +3926,40 @@
                 "test"
             ],
             "time": "2020-07-09T08:09:16+00:00"
+        },
+        {
+            "name": "liron-li/php-zookeeper-ide-helper",
+            "version": "v0.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/liron-li/php-zookeeper-ide-helper.git",
+                "reference": "821b598922e346203f2fe6caf94c5cc9437efee4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/liron-li/php-zookeeper-ide-helper/zipball/821b598922e346203f2fe6caf94c5cc9437efee4",
+                "reference": "821b598922e346203f2fe6caf94c5cc9437efee4",
+                "shasum": "",
+                "mirrors": [
+                    {
+                        "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
+                        "preferred": true
+                    }
+                ]
+            },
+            "type": "library",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "lironli",
+                    "email": "liron.li@outlook.com"
+                }
+            ],
+            "description": "php-zookeeper extension ide helper",
+            "time": "2018-03-20T08:21:04+00:00"
         },
         {
             "name": "mockery/mockery",

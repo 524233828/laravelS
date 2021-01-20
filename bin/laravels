@@ -158,6 +158,9 @@ $loader->addNamespace('Symfony\Component\Console', $basePath . '/vendor/symfony/
 $loader->addNamespace('Symfony\Contracts\Service', $basePath . '/vendor/symfony/service-contracts');
 $loader->addNamespace('Symfony\Contracts', $basePath . '/vendor/symfony/contracts');
 
+//服务注册
+(new \Helper\ServiceHandler())->register();
+
 $command = new Hhxsv5\LaravelS\Console\Portal($basePath);
 $input = new Symfony\Component\Console\Input\ArgvInput();
 $output = new Symfony\Component\Console\Output\ConsoleOutput();
