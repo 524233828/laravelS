@@ -18,7 +18,7 @@ class ServiceHandler
     {
         //读取服务域名及监听的端口
         $app_name = env("APP_NAME", "helloWorld");
-        $server_host = env("LARAVELS_LISTEN_IP", "127.0.0.1") . ":" . env("LARAVELS_LISTEN_PORT". 5200);
+        $server_host = env("LARAVELS_LISTEN_IP", "127.0.0.1") . ":" . env("LARAVELS_LISTEN_PORT", 5200);
         if (empty($app_name)) {
             return false;
         }
@@ -46,4 +46,5 @@ class ServiceHandler
     {
 
     }
+
 }
