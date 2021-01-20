@@ -27,10 +27,11 @@ class ServiceHandler
         $client = new \Zookeeper("localhost:2181");
 
         $acls = [
-
-            'perms' => \Zookeeper::PERM_ALL,
-            'scheme' => 'world',
-            'id' => 'anyone'
+            [
+                'perms' => \Zookeeper::PERM_ALL,
+                'scheme' => 'world',
+                'id' => 'anyone'
+            ]
         ];
 
         $client->create("/{$app_name}/{$server_host}", "1", $acls, \Zookeeper::EPHEMERAL);
