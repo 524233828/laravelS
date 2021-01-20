@@ -14,11 +14,11 @@ use Swoole\IDEHelper\StubGenerators\SwooleZookeeper;
 class ServiceHandler
 {
     //服务注册
-    public function register()
+    public static function register()
     {
         //读取服务域名及监听的端口
-        $app_name = env("APP_URL");
-        $server_host = env('LARAVELS_LISTEN_IP', '127.0.0.1') . ":" . env('LARAVELS_LISTEN_PORT', 5200);
+        $app_name = "helloWorld";
+        $server_host = "127.0.0.1:5200";
         if (empty($app_name)) {
             return false;
         }
@@ -26,11 +26,18 @@ class ServiceHandler
         //链接zookeeper
         $client = new \Zookeeper("localhost:2181");
 
-        $client->create("/service/{$app_name}/{$server_host}", 1, [], \Zookeeper::EPHEMERAL);
+        $acls = [
+
+            'perms' => \Zookeeper::PERM_ALL,
+            'scheme' => 'world',
+            'id' => 'anyone'
+        ];
+
+        $client->create("/{$app_name}/{$server_host}", "1", $acls, \Zookeeper::EPHEMERAL);
     }
 
     //服务发现
-    public function discover()
+    public static function discover()
     {
 
     }

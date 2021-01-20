@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use Helper\ServiceHandler;
 use Illuminate\Support\Facades\Event;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
 
@@ -28,7 +29,6 @@ class EventServiceProvider extends ServiceProvider
         parent::boot();
 
         Event::listen('laravels.received_request', function (\Illuminate\Http\Request $req, $app) {
-            echo "接收请求；\n";
             //创建sentinel 客户端
             $sentinel = new \Sentinel\SentinelClient(env('SENTINEL_HOST', 'localhost'), env('SENTINEL_PORT', '9000'));
             try {
@@ -39,6 +39,11 @@ class EventServiceProvider extends ServiceProvider
             } finally {
                 $sentinelHelloEntry = null;
             }
+        });
+
+        Event::listen('ServerStart', function ($swoole_server){
+            //服务注册
+            ServiceHandler::register();
         });
         //
     }
