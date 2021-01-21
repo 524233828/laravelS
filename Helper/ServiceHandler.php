@@ -58,7 +58,7 @@ class ServiceHandler
     {
         $config = self::getConfig();
 
-        $config = $config['laravel'];
+        $config = $config['laravel']["_ENV"];
 
         if (isset($config[$key])) {
             return $config[$key];
