@@ -23,6 +23,8 @@ class ServiceHandler
         if (empty($app_name)) {
             return false;
         }
+
+        self::registerService($app_name, $server_host);
     }
 
     public static function registerService($app_name, $server_host)
