@@ -10,6 +10,10 @@ namespace Helper;
 
 class ServiceHandler
 {
+
+    //服务目录
+    public static $service_path = "/service";
+
     //服务注册
     public static function register()
     {
@@ -19,7 +23,10 @@ class ServiceHandler
         if (empty($app_name)) {
             return false;
         }
+    }
 
+    public static function registerService($app_name, $server_host)
+    {
         //将客户端设置为全局变量，不会销毁关闭
         global $client;
 
@@ -34,14 +41,29 @@ class ServiceHandler
             ]
         ];
 
-        $client->create("/{$app_name}/{$server_host}", "1", $acls, \Zookeeper::EPHEMERAL);
 
+        //目录未创建，则创建
+        if (!$client->exists(self::$service_path)) {
+            $client->create(self::$service_path, null, $acls);
+        }
+
+        //应用未注册，则创建
+        if (!$client->exists(self::$service_path . "/{$app_name}")) {
+            $client->create(self::$service_path . "/{$app_name}", null, $acls);
+        }
+
+        // 上线服务
+        $client->create(self::$service_path . "/{$app_name}/{$server_host}", "1", $acls, \Zookeeper::EPHEMERAL);
     }
 
     //服务发现
     public static function discover()
     {
+        /** @var \Zookeeper $client */
+        global $client;
+        $client->getChildren(self::$service_path, function () {
 
+        });
     }
 
     public static function getConfig()
