@@ -46,7 +46,7 @@ class ServiceHandler
 
     public static function getConfig()
     {
-        return unserialize((string)file_get_contents($this->getConfPath()));
+        return unserialize((string)file_get_contents(self::getConfPath()));
     }
 
     protected static function getConfPath()
