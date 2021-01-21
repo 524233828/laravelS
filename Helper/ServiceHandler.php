@@ -8,9 +8,6 @@
 
 namespace Helper;
 
-
-use Swoole\IDEHelper\StubGenerators\SwooleZookeeper;
-
 class ServiceHandler
 {
     //服务注册
@@ -23,11 +20,11 @@ class ServiceHandler
             return false;
         }
 
+        //将客户端设置为全局变量，不会销毁关闭
         global $client;
 
         //链接zookeeper
         $client = new \Zookeeper("localhost:2181");
-        //将客户端设置为全局变量，不会销毁关闭
 
         $acls = [
             [

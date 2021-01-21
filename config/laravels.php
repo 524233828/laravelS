@@ -147,6 +147,7 @@ return [
     */
 
     'event_handlers' => [
+        'ServerStart' => [\App\Event\ServiceRegister::class]
     ],
 
     /*

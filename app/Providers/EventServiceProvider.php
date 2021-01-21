@@ -41,10 +41,10 @@ class EventServiceProvider extends ServiceProvider
             }
         });
 
-        Event::listen('ServerStart', function ($swoole_server){
-            //服务注册
-            ServiceHandler::register();
-        });
+//        Event::listen('ServerStart', function ($swoole_server){
+//            //服务注册
+//            ServiceHandler::register();
+//        });
         //
     }
 }
